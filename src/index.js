@@ -65,7 +65,7 @@ async function createTask( { title, id, url } ) {
 			ASANA_CUSTOM_FIELD_EXTERNAL_ID: fieldId,
 			ASANA_CUSTOM_FIELD_URL_ID: urlId,
 			ASANA_CUSTOM_FIELD_TASK_TYPE_ID: taskTypeId,
-			ASANA_CUSTOM_FIELD_TASK_TYPE_VALUE: taskTypeValue
+			ASANA_CUSTOM_FIELD_TASK_TYPE_SUPPORT_VALUE: taskTypeValue
 		} = process.env;
 
 		const config = {
@@ -104,12 +104,6 @@ async function createTask( { title, id, url } ) {
 		DISCOURSE_TOPIC_ID: topicId,
 		DISCOURSE_DAYS_TO_SEARCH: days
 	} = process.env;
-
-	// const tasks = await getTaskByCustomId( "15167" );
-	// console.log( tasks );
-
-	// const newTask = await createTask( { title: "Test Asana Task", id: "88888", url: "https://community.activecampaign.com/t/all-contacts-with-custom-field-values/15167" } );
-	// console.log( newTask );
 
 	const topics = await getTopics( baseUrl, slug, topicId, days );
 	for( const { id, title, slug: topicSlug } of topics ) {
